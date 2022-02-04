@@ -1,11 +1,15 @@
 <script>
-	export let name;
+	import Nav from "./Menu.svelte"
+	import Main from "./Main.svelte"
+	import Footer from "./Footer.svelte"
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+<header>
+	<Nav/>
+</header>
+	<Main/>
+	
+<Footer/>
 
 <style>
 	main {
