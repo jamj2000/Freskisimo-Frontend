@@ -3,6 +3,7 @@
     import { jsonData } from "./store";
     import Congelado from "./Congelado.svelte";
     import SearchBar from "./SearchBar.svelte"
+    import Button from "./Button.svelte";
     
     const URL = getContext("URL");
     let search = ""
@@ -24,6 +25,13 @@
 
 <SearchBar bind:search />
 
+<Congelado>
+    <Button type="insert" collection="congelados"/>
+    </Congelado>
+
 {#each data as congelado}
-    <Congelado congelado = {congelado}/>
+    <Congelado congelado = {congelado}>
+    <Button type="update" collection="congelados"/>
+    <Button type="delete" collection="congelados"/>
+    </Congelado>
 {/each}
