@@ -3,6 +3,7 @@
 
     export let type = "";
     export let collection = "";
+    export let document = {};
 
     let URL = getContext("URL");
 
@@ -12,7 +13,9 @@
 
     function insertAction() {console.log("Insert")}
     function updateAction() {console.log("Update")}
-    function deleteAction() {console.log("Delete")}
+    function deleteAction() {fetch(url + document._id, { method: "DELETE" })
+            .then((response) => response.json())
+            .then((data) => console.log(data));}
 
     onMount(() => {
         switch (type) {
