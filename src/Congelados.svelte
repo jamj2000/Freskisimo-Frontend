@@ -7,6 +7,7 @@
 
   const URL = getContext("URL");
   let search = "";
+  let congelado = {};
 
   onMount(() => {
     fetch(URL.congelados)
@@ -15,15 +16,17 @@
   });
 
   $: regexp = new RegExp(search, "i");
-  $: data = search ? $jsonData.filter((i) => regexp.test(i.nombre)) : $jsonData;
+  $: data = search
+    ? $jsonData.filter((item) => regexp.test(item.nombre))
+    : $jsonData;
 </script>
 
 <h1>CONGELADOS</h1>
 
 <SearchBar bind:search />
 
-<Congelado>
-  <Button type="insert" collection="congelados" />
+<Congelado bind:congelado>
+  <Button type="insert" collection="congelados" document={congelado} />
 </Congelado>
 
 {#each data as congelado}
