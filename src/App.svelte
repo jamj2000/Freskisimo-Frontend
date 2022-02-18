@@ -1,28 +1,20 @@
 <script>
-	import Nav from "./Menu.svelte"
-	import Main from "./Main.svelte"
-	import Footer from "./Footer.svelte"
+  import { Router } from "svelte-routing";
+  import Header from "./Header.svelte";
+  import Main from "./Main.svelte";
+
+  import { setContext } from "svelte";
+
+  const URL = {
+    congelados: "https://freskisimo-app.herokuapp.com/api/congelados/",
+    vehiculos: "https://freskisimo-app.herokuapp.com/api/vehiculos/",
+    repartidores: "https://freskisimo-app.herokuapp.com/api/repartidores/",
+  };
+
+  setContext("URL", URL);
 </script>
 
-<header>
-	<Nav/>
-</header>
-<main>
-	<Main/>
-</main>
-<Footer/>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<Router>
+  <Header />
+  <Main />
+</Router>
