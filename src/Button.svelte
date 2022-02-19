@@ -18,37 +18,38 @@
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(document),
     })
-      .then((res) => res.json())
-      .then( data => $jsonData = [ ...$jsonData, data ] );
+      .then((response) => response.json())
+      .then((data) => ($jsonData = [...$jsonData, data]));
   }
 
   function updateAction() {
-    console.log("Update");
+    fetch(url + document._id, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(document),
+    }).then((response) => response.json());
   }
 
   function deleteAction() {
     fetch(url + document._id, { method: "DELETE" })
       .then((response) => response.json())
       .then(
-                (data) =>
-                    ($jsonData = $jsonData.filter(
-                        (x) => x._id !== document._id
-                    ))
-            );
+        (data) => ($jsonData = $jsonData.filter((x) => x._id !== document._id))
+      );
   }
 
   onMount(() => {
     switch (type) {
       case "insert":
-        addedClass = "insert";
+        addedClass = "btn btn-green insert";
         handler = insertAction;
         break;
       case "update":
-        addedClass = "update";
+        addedClass = "btn btn-blue update";
         handler = updateAction;
         break;
       case "delete":
-        addedClass = "delete";
+        addedClass = "btn btn-danger delete";
         handler = deleteAction;
         break;
       default:
@@ -75,23 +76,24 @@
 <button class={addedClass} on:click={handler} />
 
 <style>
-  .insert {
-    background-color: lightgreen;
+  .btn-green {
+    background-color: #10a35e;
   }
+  .btn-blue {
+    background-color: #2563c0;
+  }
+  .btn-red {
+    background-color: #df3647;
+  }
+  
   .insert::after {
     content: "Insert";
   }
 
-  .update {
-    background-color: lightskyblue;
-  }
   .update::after {
     content: "Update";
   }
 
-  .delete {
-    background-color: lightcoral;
-  }
   .delete::after {
     content: "Delete";
   }
