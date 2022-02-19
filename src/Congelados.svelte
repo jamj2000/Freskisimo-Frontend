@@ -23,15 +23,19 @@
 
 <h1>CONGELADOS</h1>
 
-<SearchBar bind:search />
+
 
 <Congelado bind:congelado>
   <Button type="insert" collection="congelados" document={congelado} />
 </Congelado>
 
-{#each data as congelado}
-  <Congelado {congelado}>
-    <Button type="update" collection="congelados" document={congelado} />
-    <Button type="delete" collection="congelados" document={congelado} />
-  </Congelado>
-{/each}
+<SearchBar bind:search />
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  {#each data as congelado}
+    <Congelado {congelado}>
+      <Button type="update" collection="congelados" document={congelado} />
+      <Button type="delete" collection="congelados" document={congelado} />
+    </Congelado>
+  {/each}
+</div>

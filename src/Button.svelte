@@ -49,7 +49,7 @@
         handler = updateAction;
         break;
       case "delete":
-        addedClass = "btn btn-danger delete";
+        addedClass = "btn btn-red delete";
         handler = deleteAction;
         break;
       default:
@@ -77,15 +77,18 @@
 
 <style>
   .btn-green {
+    color: #ffffff;
     background-color: #10a35e;
   }
   .btn-blue {
+    color: #ffffff;
     background-color: #2563c0;
   }
   .btn-red {
+    color: #ffffff;
     background-color: #df3647;
   }
-  
+
   .insert::after {
     content: "Insert";
   }
