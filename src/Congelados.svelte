@@ -25,7 +25,7 @@
 
 
 
-<Congelado bind:congelado>
+<Congelado bind:congelado class="my-2 ">
   <Button type="insert" collection="congelados" document={congelado} />
 </Congelado>
 
