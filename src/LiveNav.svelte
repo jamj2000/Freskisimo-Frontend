@@ -1,8 +1,6 @@
 <script>
   import { Link } from "svelte-routing";
 
-  export let to = "";
-
   function getProps({ location, href, isPartiallyCurrent, isCurrent }) {
     const isActive = href === "/" ? isCurrent : isPartiallyCurrent || isCurrent;
 
@@ -14,7 +12,7 @@
   }
 </script>
 
-<ul class="nav nav-tabs justify-content-center" role="tablist">
+<ul class="nav nav-tabs nav-fill" role="tablist">
   <li class="nav-item" role="tab">
     <Link to="/" {getProps}>Inicio</Link>
   </li>

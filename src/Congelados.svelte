@@ -21,13 +21,21 @@
     : $jsonData;
 </script>
 
-<h1>CONGELADOS</h1>
-
-
-
-<Congelado bind:congelado class="my-2">
-  <Button type="insert" collection="congelados" document={congelado} />
-</Congelado>
+<div class="row">
+  <div class="col">
+    <Congelado bind:congelado class="my-2">
+      <Button type="insert" collection="congelados" document={congelado} />
+    </Congelado>
+  </div>
+  <div class="col-8">
+    <div class="hero-image hero-image-congelados">
+      <div class="hero-text">
+        <h2 class="fw-bold">CONGELADOS</h2>
+        <p class="fst-italic">Food preserved by a freezing process</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <SearchBar bind:search />
 
