@@ -6,7 +6,7 @@
 </script>
 
 <main>
-  <div class="container bg-body p-4">
+  <div class="container bg-light p-4">
     <LiveNav />
     <Route path="/" component={Index} />
     <Route path="/congelados" component={Congelados} />

@@ -2,7 +2,7 @@
   export let congelado = {};
 </script>
 
-<div class="card" style="width: 18rem;">
+<div class="card border-secondary shadow" >
   <div class="card-body">
     <div class="input-group mb-3">
       <span class="input-group-text" id="name">Name</span>
