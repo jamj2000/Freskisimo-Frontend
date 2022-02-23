@@ -37,7 +37,7 @@
         bind:value={vehiculo.modelo}
       />
     </div>
-<!--
+
     <div class="input-group mb-3">
       <span class="input-group-text" id="registration">Registration</span>
       <span class="input-group-text" id="textRegistration">
@@ -49,14 +49,14 @@
 
     <div class="input-group mb-3">
       <input
-        type="date"
+        type="text"
         class="form-control"
         aria-label="Registration"
         aria-describedby="registration"
         bind:value={vehiculo.fechaMatriculacion}
       />
     </div>
-  -->
+
     <slot />
   </div>
 </div>
