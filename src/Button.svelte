@@ -13,7 +13,7 @@
   let url = "";
 
   function insertAction() {
-    fetch(URL.congelados, {
+    fetch(url, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(document),
