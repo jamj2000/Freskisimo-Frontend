@@ -4,7 +4,7 @@
   import LiveNav from "./LiveNav.svelte";
   import Congelados from "./Congelados.svelte";
   import Vehiculos from "./Vehiculos.svelte";
-
+  import Repartidores from "./Repartidores.svelte";
 </script>
 
 <main>
@@ -13,6 +13,6 @@
     <Route path="/" component={Index} />
     <Route path="/congelados" component={Congelados} />
     <Route path="/vehiculos" component={Vehiculos} />
-   
+    <Route path="/repartidores" component={Repartidores} />
   </div>
 </main>
