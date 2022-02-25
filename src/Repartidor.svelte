@@ -1,5 +1,15 @@
 <script>
+  import { getContext, onMount } from "svelte";
   export let repartidor = {};
+
+  const URL = getContext("URL");
+  let vehiculos = [];
+
+  onMount(() => {
+    fetch(URL.vehiculos)
+      .then((response) => response.json())
+      .then((data) => (vehiculos = data));
+  });
 </script>
 
 <div class="card border-secondary shadow">
@@ -49,16 +59,24 @@
         />
       </div>
     </div>
-    <!--
+
     <div class="input-group mb-3">
       <span class="input-group-text" id="vehiculo">Vehículo ID</span>
-      <select class="form-select" bind:value={repartidor.vehiculoId} aria-label="Vehículo">
-        {#each vehiculos as vehiculo}
-          <option value={vehiculo.id}>{vehiculo.matricula}</option>
-        {/each}
-      </select>
+      <span class="input-group-text" id="textRegistration">
+        {repartidor.vehiculoId !== undefined
+          ? repartidor.vehiculoId.matricula
+          : "Select below"}
+      </span>
     </div>
-  -->
+    <select
+      class="form-select mb-3"
+      bind:value={repartidor.vehiculoId}
+      aria-label="Vehículo"
+    > 
+      {#each vehiculos as vehiculo}
+        <option value={vehiculo}>{vehiculo.matricula}</option>
+      {/each}
+    </select>
     <slot />
   </div>
 </div>
